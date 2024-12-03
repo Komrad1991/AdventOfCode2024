@@ -1,9 +1,10 @@
+#include "day3.h"
 #include "day2.h"
 #include "Day1.h"
 #include <iostream>
+#include <fstream>
 
 int main()
 {
-	std::cout << countSafeLevels("../input2.txt") << std::endl;
-	std::cout << countSafeLevels2("../input2.txt") << std::endl;
+	std::cout << doMult("../input3.txt");
 }

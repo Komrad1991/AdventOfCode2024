@@ -7,10 +7,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AdventOfCode2024", "AdventO
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{73649438-849D-4DCD-B254-FA64ABDA4B75}"
 	ProjectSection(SolutionItems) = preProject
-		input.txt = input.txt
-		test.txt = test.txt
 		day2test.txt = day2test.txt
+		input.txt = input.txt
 		input2.txt = input2.txt
+		input3.txt = input3.txt
+		test.txt = test.txt
+		test3.txt = test3.txt
 	EndProjectSection
 EndProject
 Global
