@@ -1,3 +1,4 @@
+#include "day6.h"
 #include "day5.h"
 #include "day4.h"
 #include "day3.h"
@@ -8,6 +9,6 @@
 
 int main()
 {
-	std::cout << sumOfMiddle2("../input5.txt") << std::endl;
+	std::cout << howManyLoops("../input6.txt") << std::endl;
 	
 }

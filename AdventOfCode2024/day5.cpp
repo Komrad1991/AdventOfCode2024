@@ -87,13 +87,6 @@ int sumOfMiddle2(std::string path)
 		}
 		else setOfRules[left].insert(right);
 	}
-	//for (auto& x : setOfRules)
-	//{
-	//	for (auto& y : x.second)
-	//	{
-	//		std::cout << x.first << "|" << y << std::endl;
-	//	}
-	//}
 	std::string line;
 	int res = 0;
 	while (std::getline(file, line) && line.size() > 0)
