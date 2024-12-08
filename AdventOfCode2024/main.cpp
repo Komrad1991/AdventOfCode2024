@@ -1,3 +1,4 @@
+#include "day7.h"
 #include "day6.h"
 #include "day5.h"
 #include "day4.h"
@@ -9,6 +10,8 @@
 
 int main()
 {
-	std::cout << howManyLoops("../input6.txt") << std::endl;
-	
+	auto num = tryAllPoses("../input7.txt");
+	std::cout << num << std::endl;
+	std::string s1 = "18";
+	std::string s2 = "19";
 }
