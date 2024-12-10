@@ -1,3 +1,4 @@
+#include "day9.h"
 #include "day8.h"
 #include "day7.h"
 #include "day6.h"
@@ -11,5 +12,6 @@
 
 int main()
 {
-	std::cout << countAntidotes("../input8.txt") << std::endl;
+	auto ans = tryAllPoses("../input7.txt");
+	std::cout << ans;
 }

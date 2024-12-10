@@ -14,6 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решен
 		input4.txt = input4.txt
 		input7.txt = input7.txt
 		input8.txt = input8.txt
+		input9.txt = input9.txt
 		test.txt = test.txt
 		test3.txt = test3.txt
 		test4.txt = test4.txt
@@ -22,6 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решен
 		test7.txt = test7.txt
 		test8.txt = test8.txt
 		test82.txt = test82.txt
+		test9.txt = test9.txt
 	EndProjectSection
 EndProject
 Global
