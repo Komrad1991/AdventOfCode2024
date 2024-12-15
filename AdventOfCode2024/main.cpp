@@ -1,3 +1,4 @@
+#include "day10.h"
 #include "day9.h"
 #include "day8.h"
 #include "day7.h"
@@ -12,6 +13,5 @@
 
 int main()
 {
-	auto ans = tryAllPoses("../input7.txt");
-	std::cout << ans;
+	std::cout << countTrailHeads2("../input10.txt");
 }
