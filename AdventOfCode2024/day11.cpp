@@ -4,61 +4,47 @@
 #include <string>
 #include "day11.h"
 #include <map>
+#include <list>
 
+std::map<std::pair<size_t,size_t>, size_t> numfromStep;
 
-std::map<int, std::map<int,std::vector<int>>> numfromStep;
-
-long long int countPebbles(std::vector<int> pebbles)
+size_t countPebbles(std::vector<int> pebbles)
 {
-	
+	size_t ret = 0;
+	for (auto x : pebbles)
+	{
+		ret += oneblink(x, 75);
+	}
+	return ret;
 }
 
-void oneblink(long long int pebble_num,int step,std::vector<int>& pebbles)
+size_t oneblink(size_t pebble_num, long long int step)
 {
-	std::string str;
-	int len = 0;
-	if (step >= 26)
-	{
-		
-		return;
-	}
-	if (pebble_num == 0)
-	{
-		
-	}
-	else if ((len = (str = std::to_string(pebble_num)).length()) % 2 == 0) {
-		auto left = pebble_num / ((int)std::pow(10,len/2));
-		auto right = pebble_num % ((int)std::pow(10,len/2));
-		oneblink(left, step + 1, pebbles);
-		oneblink(right, step + 1, pebbles);
-	}
-	else oneblink(pebble_num * 2024, step + 1,pebbles)
-}
+    if (numfromStep.contains({ pebble_num, step })) return numfromStep[{pebble_num, step}];
 
-int sum(int x, int y)
-{
-	return x + y;
-}
+    size_t sum{};
+    std::vector<size_t> st{ pebble_num };
 
-void calculateZero(int pebble_num,std::map<int,int>& pebbles,int step,std::map<int,std::vector<int>>& concretePebbles)
-{
-	std::string str;
-	int len = 0;
-	pebbles[step] += 1;
-	concretePebbles[step].push_back(pebble_num);
-	if (step >= 26)
-	{
-		return;
-	}
-	if (pebble_num == 0)
-	{
-		calculateZero(1, pebbles, step + 1,concretePebbles);
-	}
-	else if ((len = (str = std::to_string(pebble_num)).length()) % 2 == 0) {
-		auto left = pebble_num / ((int)std::pow(10, len / 2));
-		auto right = pebble_num % ((int)std::pow(10, len / 2));
-		calculateZero(left, pebbles, step + 1,concretePebbles);
-		calculateZero(right, pebbles, step + 1,concretePebbles);
-	}
-	else calculateZero(pebble_num * 2024, pebbles, step+1,concretePebbles);
+    for (int i{}; i < step; ++i)
+    {
+        for (auto it{ st.begin() }; it != st.end(); ++it)
+        {
+            if (*it == 0) *it = 1;
+            else if (std::to_string(*it).size() % 2 == 0)
+            {
+                auto num = std::to_string(*it);
+                size_t left = std::stoull(num.substr(0, num.length() / 2));
+                size_t right = std::stoull(num.substr(num.length() / 2));
+                sum += oneblink(left, step - i - 1);
+                sum += oneblink(right, step - i - 1);
+                it = st.erase(it);
+                if (it == st.end()) break;
+            }
+            else *it *= 2024;
+        }
+    }
+
+    numfromStep[{pebble_num, step}] = st.size() + sum;
+
+    return st.size() + sum;
 }

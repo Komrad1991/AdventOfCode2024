@@ -1,11 +1,13 @@
 #pragma once
 #include <vector>
 #include <map>
+#include <list>
 
-long long int countPebbles(std::vector<int> pebbles);
+size_t countPebbles(std::vector<int> pebbles);
 
-void oneblink(long long int pebble_num, int step,std::vector<int>& pebbles);
+size_t oneblink(size_t pebble_num, long long int step);
 
-int sum(int x, int y);
+size_t count_num(size_t n, size_t num_iters,
+    std::map<std::pair<size_t, size_t>, size_t>& vals);
 
-void calculateZero(int pebble_num, std::map<int, int>& pebbles, int step, std::map<int, std::vector<int>>& concretePebbles);
+size_t blink(size_t n, const std::list<size_t>& st);
