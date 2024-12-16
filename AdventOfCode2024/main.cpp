@@ -1,3 +1,6 @@
+
+
+#include "day11.h"
 #include "day10.h"
 #include "day9.h"
 #include "day8.h"
@@ -10,8 +13,9 @@
 #include "Day1.h"
 #include <iostream>
 #include <fstream>
+#include <vector>
 
 int main()
 {
-	std::cout << countTrailHeads2("../input10.txt");
+	std::cout << countPebbles({ 0, 5601550, 3914, 852, 50706, 68, 6, 645371 });
 }
