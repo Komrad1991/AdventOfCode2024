@@ -7,7 +7,7 @@
 #include <set>
 #include <algorithm>
 
-int countWinCombos(const std::string& path)
+long long int countWinCombos(const std::string& path)
 {
 	std::fstream file;
 	file.open(path);
@@ -15,7 +15,7 @@ int countWinCombos(const std::string& path)
 	std::string line;
 	std::pair<int, int> buttonA;
 	std::pair<int, int> buttonB;
-	int result = 0;
+	long long int result = 0;
 	while (std::getline(file, line))
 	{
 		if (line.substr(0, 6) == "Button")
@@ -39,27 +39,31 @@ int countWinCombos(const std::string& path)
 		{
 			int first = std::stoi(line.substr(9, line.find_first_not_of("0123456789", 9)));
 			int sec = std::stoi(line.substr(line.find_first_of("0123456789", line.find_first_not_of("0123456789", 9))));
-			std::pair<long long int, long long int> dest = { first + 10000000000000,sec + 10000000000000 };
-			std::set<std::pair<int, int>> vars;
-			int maxA = std::max(dest.first / buttonA.first, dest.second / buttonA.second);
-			int maxB = std::max(dest.first / buttonB.first, dest.second / buttonB.second);
-			for (int a = 0; a < maxA; a++)
+			std::pair<long long int, long long int> dest = { first + 10000000000000,sec + 10000000000000};
+			std::set<std::pair<long long int, long long int>> vars;
+			long long int maxA = std::min(dest.first / buttonA.first, dest.second / buttonA.second);
+			if ((buttonA.first * buttonB.second) != (buttonB.first * buttonA.second))
 			{
-				for (int b = maxB; b >= 0; b--)
-				{
-					std::pair<long long int, long long int> curr = { buttonA.first * a + buttonB.first * b,buttonA.second * a + buttonB.second * b };
-					if (curr == dest)
-						vars.insert({ a,b });
+				const long long n1 = (dest.first * buttonB.second - dest.second * buttonB.first) / (buttonA.first * buttonB.second - buttonA.second * buttonB.first);
+				const long long n2 = (dest.first * buttonA.second - dest.second * buttonA.first) / (buttonB.first * buttonA.second - buttonB.second * buttonA.first);
+				//foundPosVar(buttonA, 0, buttonB, 0, start, dest, vars);
+				if (n1 * buttonA.first + n2 * buttonB.first == dest.first) {
+					if (n1 * buttonA.second + n2 * buttonB.second == dest.second)
+					{
+						if (n1 >= 0 && n2 >= 0)
+						{
+							vars.insert({ n1,n2 });
+						}
+					}
 				}
 			}
-			//foundPosVar(buttonA, 0, buttonB, 0, start, dest, vars);
+			
 			std::cout << vars.size() << std::endl;
 			if (vars.size() > 0)
 			{
-				std::vector<int> tokens;
+				std::vector<long long int> tokens;
 				for (auto i = vars.begin(); i != vars.end(); i++)
 				{
-					
 					tokens.push_back((*i).first * 3 + (*i).second);
 				}
 				result += *std::min_element(tokens.begin(), tokens.end());

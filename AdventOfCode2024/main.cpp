@@ -21,4 +21,5 @@
 int main()
 {
 	std::cout << countWinCombos("../input13.txt");
+	
 }
