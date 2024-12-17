@@ -1,4 +1,5 @@
 
+#include "day14.h"
 #include "day13.h"
 #include "day12.h"
 #include "day11.h"
@@ -20,6 +21,5 @@
 
 int main()
 {
-	std::cout << countWinCombos("../input13.txt");
-	
+	std::cout << countRobotsInQuadrants("../input14.txt");
 }
