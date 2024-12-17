@@ -1,5 +1,6 @@
 
-
+#include "day13.h"
+#include "day12.h"
 #include "day11.h"
 #include "day10.h"
 #include "day9.h"
@@ -14,10 +15,10 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <algorithm>
+#include <ranges>
 
 int main()
 {
-	std::cout << blink(75,{ 0, 5601550, 3914, 852, 50706, 68, 6, 645371 });
-	std::cout << countPebbles({ 0, 5601550, 3914, 852, 50706, 68, 6, 645371 });
-
+	std::cout << countWinCombos("../input13.txt");
 }

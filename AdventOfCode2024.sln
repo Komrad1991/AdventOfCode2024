@@ -9,14 +9,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решен
 	ProjectSection(SolutionItems) = preProject
 		day2test.txt = day2test.txt
 		input.txt = input.txt
-		input10.txt = input10.txt
+		input12.txt = input12.txt
+		input13.txt = input13.txt
 		input2.txt = input2.txt
 		input3.txt = input3.txt
 		input4.txt = input4.txt
 		input7.txt = input7.txt
 		input8.txt = input8.txt
+		input9.txt = input9.txt
 		test.txt = test.txt
-		test10.txt = test10.txt
+		test12.txt = test12.txt
+		test13.txt = test13.txt
 		test3.txt = test3.txt
 		test4.txt = test4.txt
 		test5.txt = test5.txt
@@ -24,6 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решен
 		test7.txt = test7.txt
 		test8.txt = test8.txt
 		test82.txt = test82.txt
+		test9.txt = test9.txt
 	EndProjectSection
 EndProject
 Global
